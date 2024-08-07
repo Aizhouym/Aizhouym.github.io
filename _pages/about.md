@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Hi there!👋 Welecome to Yingming Zhou's homepage."
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
