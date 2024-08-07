@@ -7,5 +7,5 @@ redirect_from:
   - /about.html
 ---
 
-#About me 
-I'm a thrid year undegraduate student from 
+# About me 
+I'm a thrid year undegraduate student from Capital Normal University.
