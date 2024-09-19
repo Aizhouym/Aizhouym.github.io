@@ -7,14 +7,14 @@ author_profile: true
 
 Check my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAAAAJ&hl=zh-CN) profile for more information!
 
-( $^*$ stands for equal contribution. Listed in reverse chronological order.)
+( $$^*$$ stands for equal contribution. Listed in reverse chronological order.)
 
 ## Manuscripts
 
 
 - ***[AAAI-2025] [Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System.](https://arxiv.org/pdf/2409.06568)***
-<br> Leilei Lin,
-***<span style="color:blue">Yingming Zhou</span>***,
+<br> Leilei Lin$$^*$$,
+***<span style="color:blue">Yingming Zhou$$^*$$ </span>***,
 Wenlong Chen and Chen Qian.
 <br>In submission.
 
