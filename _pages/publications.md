@@ -9,17 +9,17 @@ Check my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAAAAJ
 
 ( $$^*$$ stands for equal contribution. Listed in reverse chronological order.)
 
-## Manuscripts
+## Preprint
 
 
-- ***[AAAI-2025] [Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System.](https://arxiv.org/pdf/2409.06568)***
+- ***[Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System.](https://arxiv.org/pdf/2409.06568)***
 <br> Leilei Lin$$^*$$,
 ***<span style="color:blue">Yingming Zhou$$^*$$ </span>***,
 Wenlong Chen and Chen Qian.
 <br>In submission.
 
 
-- ***[AAAI-2025] [MAO: A Framework for Process Model Generation with Multi-Agent Orchestration.](https://arxiv.org/pdf/2408.01916)***
+- ***[MAO: A Framework for Process Model Generation with Multi-Agent Orchestration.](https://arxiv.org/pdf/2408.01916)***
 <br> Leilei Lin,
 Yumeng Jin,
 ***<span style="color:blue">Yingming Zhou</span>***,
