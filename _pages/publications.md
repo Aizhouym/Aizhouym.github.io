@@ -13,8 +13,8 @@ Check my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAAAAJ
 ## Conference Publications
 
 - ***[MAO: A Framework for Process Model Generation with Multi-Agent Orchestration.](https://arxiv.org/pdf/2408.01916)***
-<br> Leilei Lin,
-Yumeng Jin,
+<br> Leilei Lin$$^*$$,
+Yumeng Jin$$^*$$,
 ***<span style="color:blue">Yingming Zhou</span>***,
 Wenlong Chen and Chen Qian.
 <br> IEEE Transactions on Services Computing, 2025.
