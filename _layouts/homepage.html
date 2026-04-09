@@ -41,7 +41,7 @@
       --amber:  #d97706;
       --purple: #7c3aed;
 
-      --w: 1060px;
+      --w: 1280px;
       --radius-sm: 4px;
       --radius:    6px;
       --radius-md: 8px;
@@ -295,7 +295,7 @@
     /* ── TWO-COLUMN BODY ─────────────────────────────────── */
     .body-grid {
       display: grid;
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: 1fr 320px;
       gap: 0 3.5rem;
       align-items: start;
     }
@@ -534,6 +534,10 @@
       transition: opacity .2s;
     }
     .footer-globe:hover { opacity: 1; }
+    /* constrain the globe canvas to a sensible size */
+    .footer-globe canvas,
+    .footer-globe img,
+    .footer-globe > * { max-width: 160px !important; max-height: 160px !important; }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 820px) {
