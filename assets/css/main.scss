@@ -39,3 +39,108 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* ============================================================
+   Custom enhancements
+   ============================================================ */
+
+/* Sidebar container card feel */
+.sidebar {
+  background: #fff;
+
+  @media screen and (min-width: 1024px) {
+    padding-top: calc(#{$masthead-height} + 1.5em);
+    padding-right: 1.25em;
+  }
+}
+
+/* Author content alignment on large screens */
+.author__content {
+  @media screen and (min-width: 1024px) {
+    text-align: center;
+  }
+}
+
+/* Author location & employer styling */
+.author__urls li.author__desktop {
+  font-size: 0.8em;
+  color: #64748b;
+  padding: 4px 8px;
+}
+
+/* Publication list styling */
+.page__content ul li {
+  position: relative;
+  padding: 0.6em 0.8em;
+  margin-bottom: 0.5em;
+  border-left: 3px solid transparent;
+  border-radius: 0 $border-radius $border-radius 0;
+  transition: $global-transition;
+  list-style: none;
+
+  &:hover {
+    border-left-color: $primary-color;
+    background: lighten($primary-color, 49%);
+  }
+}
+
+/* Override to keep normal list markers in non-pub pages */
+.page__content p + ul li,
+.page__content h2 + ul li {
+  list-style: none;
+}
+
+/* "About Me" section headings */
+.page__content h2 {
+  font-size: 1.15em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* News items: simple tag-like prefix */
+.page__content h2:has(+ ul) + ul li,
+.page__content ul li strong:first-child {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+/* Link styling in content */
+.page__content a {
+  color: $primary-color;
+  text-decoration: none;
+  border-bottom: 1px solid lighten($primary-color, 35%);
+  transition: $global-transition;
+
+  &:hover {
+    border-bottom-color: $primary-color;
+    color: darken($primary-color, 10%);
+  }
+}
+
+/* Masthead site title */
+.masthead__menu-item--lg a {
+  background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Footer cleanup */
+.page__footer {
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 0.85em;
+
+  a {
+    color: #94a3b8;
+    &:hover { color: #fff; }
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

@@ -87,6 +87,7 @@
     display: block;
     width: auto;
     height: auto;
+    text-align: center;
   }
 
   img {
@@ -94,8 +95,15 @@
     border-radius: 50%;
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: 4px;
+      border: 3px solid $primary-color;
+      box-shadow: 0 4px 14px rgba($primary-color, 0.25);
+      transition: $global-transition;
+
+      &:hover {
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+        transform: scale(1.02);
+      }
     }
   }
 }
@@ -119,13 +127,17 @@
   margin: 0;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    text-align: center;
   }
 }
 .sidebar .author__name {
   font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-size: $type-size-4;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
 }
 
 .sidebar .author__desktop {
@@ -146,10 +158,14 @@
 
 .author__bio {
   margin: 0;
+  color: #475569;
+  font-size: 0.875em;
+  line-height: 1.6;
 
   @include breakpoint($large) {
-    margin-top: 10px;
+    margin-top: 8px;
     margin-bottom: 20px;
+    text-align: center;
   }
 }
 
@@ -245,16 +261,20 @@
 
   a {
     display: block;
-    margin-bottom: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: inherit;
-    font-size: $type-size-5;
+    margin-bottom: 2px;
+    padding: 5px 8px;
+    border-radius: $border-radius;
+    color: #334155;
+    font-size: $type-size-6;
+    font-weight: 500;
     text-decoration: none;
+    transition: $global-transition;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
+      background: lighten($primary-color, 47%);
+      color: $primary-color;
+      padding-left: 12px;
     }
   }
 }

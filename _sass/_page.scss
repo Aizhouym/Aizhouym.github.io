@@ -52,7 +52,20 @@
 
   h2 {
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 2px solid $border-color;
+    color: #0f172a;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 2.5em;
+      height: 2px;
+      background: $primary-color;
+      border-radius: 2px;
+    }
   }
 
   p, li, dl {
