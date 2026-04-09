@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.author.name }}</title>
-  <meta name="description" content="{{ site.author.bio }}">
+  <meta name="description" content="{{ site.description }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,6 +29,9 @@
       --amber:      #B45309;
       --amber-bg:   #FFFBEB;
       --amber-bd:   #FDE68A;
+      --purple:     #7C3AED;
+      --purple-bg:  #F5F3FF;
+      --purple-bd:  #DDD6FE;
       --w: 760px;
     }
 
@@ -56,7 +59,6 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
       max-width: var(--w);
       margin: 0 auto;
@@ -66,7 +68,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .nav-brand {
       font-weight: 700;
       font-size: .92rem;
@@ -75,9 +76,7 @@
       text-decoration: none;
     }
     .nav-brand:hover { color: var(--blue); text-decoration: none; }
-
     .nav-links { display: flex; align-items: center; gap: .15rem; }
-
     .nav-links a {
       padding: .3rem .65rem;
       border-radius: 6px;
@@ -88,12 +87,7 @@
       transition: all .15s;
     }
     .nav-links a:hover { background: var(--blue-light); color: var(--blue); text-decoration: none; }
-
-    .nav-cv {
-      background: var(--navy) !important;
-      color: #fff !important;
-      margin-left: .25rem;
-    }
+    .nav-cv { background: var(--navy) !important; color: #fff !important; margin-left: .25rem; }
     .nav-cv:hover { background: var(--blue) !important; color: #fff !important; }
 
     /* ── PAGE WRAPPER ────────────────────────────────────── */
@@ -110,7 +104,6 @@
       align-items: flex-start;
       padding: 3.5rem 0 3rem;
     }
-
     .profile-photo {
       flex-shrink: 0;
       width: 148px;
@@ -119,9 +112,7 @@
       object-fit: cover;
       box-shadow: 0 0 0 3px #fff, 0 0 0 4.5px var(--border);
     }
-
     .profile-body { flex: 1; min-width: 0; padding-top: .25rem; }
-
     .profile-pill {
       display: inline-flex;
       align-items: center;
@@ -138,9 +129,7 @@
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--blue);
-      flex-shrink: 0;
     }
-
     .profile-name {
       font-size: 2rem;
       font-weight: 800;
@@ -149,7 +138,6 @@
       color: var(--navy);
       margin-bottom: .5rem;
     }
-
     .profile-meta {
       font-size: .87rem;
       color: var(--muted);
@@ -162,7 +150,6 @@
     .profile-meta a { color: var(--muted); font-weight: 500; }
     .profile-meta a:hover { color: var(--blue); text-decoration: underline; }
     .profile-meta .dot { color: var(--border); }
-
     .profile-bio {
       font-size: .93rem;
       line-height: 1.8;
@@ -172,9 +159,7 @@
     }
     .profile-bio strong { color: var(--dark); font-weight: 600; }
     .profile-bio a { color: var(--blue); font-weight: 500; }
-
     .profile-links { display: flex; flex-wrap: wrap; gap: .45rem; }
-
     .plink {
       display: inline-flex;
       align-items: center;
@@ -188,28 +173,16 @@
       text-decoration: none;
       transition: all .16s;
     }
-    .plink:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-      background: var(--blue-light);
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
+    .plink:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); text-decoration: none; transform: translateY(-1px); }
     .plink svg { width: 14px; height: 14px; flex-shrink: 0; }
     .plink--dark { background: var(--navy); border-color: var(--navy); color: #fff; }
     .plink--dark:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
 
     /* ── DIVIDER ─────────────────────────────────────────── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      border: none;
-      margin: 0;
-    }
+    .divider { height: 1px; background: var(--border); border: none; margin: 0; }
 
     /* ── SECTION ─────────────────────────────────────────── */
     .section { padding: 2.5rem 0; }
-
     .section-label {
       font-size: .68rem;
       font-weight: 700;
@@ -218,18 +191,23 @@
       color: var(--blue);
       margin-bottom: .5rem;
     }
-
     .section-heading {
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -.025em;
       color: var(--navy);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* ── TAGS ────────────────────────────────────────────── */
+    /* ── RESEARCH ────────────────────────────────────────── */
+    .research-text {
+      font-size: .95rem;
+      line-height: 1.85;
+      color: var(--body);
+      margin-bottom: 1.2rem;
+    }
+    .research-text strong { color: var(--dark); font-weight: 600; }
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
-
     .tag {
       padding: .32rem .8rem;
       border-radius: 99px;
@@ -245,7 +223,6 @@
 
     /* ── NEWS ────────────────────────────────────────────── */
     .news-list { display: flex; flex-direction: column; }
-
     .news-item {
       display: flex;
       gap: 1.1rem;
@@ -254,7 +231,6 @@
       border-bottom: 1px solid var(--border);
     }
     .news-item:last-child { border-bottom: none; }
-
     .news-year {
       flex-shrink: 0;
       font-size: .68rem;
@@ -267,18 +243,16 @@
       border-radius: 4px;
       margin-top: .2rem;
     }
-
     .news-text { font-size: .88rem; line-height: 1.65; color: var(--body); }
     .news-text em { font-style: italic; color: var(--dark); font-weight: 500; }
     .news-text strong { font-weight: 600; color: var(--dark); }
 
     /* ── PUBLICATIONS ────────────────────────────────────── */
     .pub-list { display: flex; flex-direction: column; gap: .75rem; }
-
     .pub-card {
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.1rem 1.25rem;
+      padding: 1.1rem 1.25rem 1.1rem 1.4rem;
       position: relative;
       overflow: hidden;
       transition: border-color .18s, box-shadow .18s, transform .18s;
@@ -291,13 +265,9 @@
     }
     .pub-card--journal::before  { background: var(--green); }
     .pub-card--conf::before     { background: var(--blue); }
+    .pub-card--workshop::before { background: var(--purple); }
     .pub-card--preprint::before { background: var(--amber); }
-
-    .pub-card:hover {
-      border-color: #C7D7FD;
-      box-shadow: 0 4px 14px rgba(37,99,235,.08);
-      transform: translateY(-1px);
-    }
+    .pub-card:hover { border-color: #C7D7FD; box-shadow: 0 4px 14px rgba(37,99,235,.08); transform: translateY(-1px); }
 
     .pub-top {
       display: flex;
@@ -306,7 +276,7 @@
       gap: .75rem;
       margin-bottom: .45rem;
     }
-
+    .pub-badges { display: flex; gap: .35rem; flex-wrap: wrap; align-items: center; }
     .pub-venue {
       display: inline-block;
       font-size: .68rem;
@@ -316,9 +286,22 @@
       padding: .18rem .55rem;
       border-radius: 4px;
     }
-    .pub-venue--journal  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-bd); }
+    .pub-venue--journal  { background: var(--green-bg);   color: var(--green);  border: 1px solid var(--green-bd); }
     .pub-venue--conf     { background: var(--blue-light); color: var(--blue-dark); border: 1px solid var(--blue-mid); }
-    .pub-venue--preprint { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
+    .pub-venue--workshop { background: var(--purple-bg);  color: var(--purple); border: 1px solid var(--purple-bd); }
+    .pub-venue--preprint { background: var(--amber-bg);   color: var(--amber);  border: 1px solid var(--amber-bd); }
+
+    .pub-role {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      padding: .18rem .5rem;
+      border-radius: 4px;
+      background: #F3F4F6;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
 
     .pub-pdflink {
       display: inline-flex;
@@ -346,13 +329,8 @@
       letter-spacing: -.01em;
     }
     .pub-title a { color: inherit; text-decoration: none; }
-    .pub-title a:hover { color: var(--blue); text-decoration: none; }
-
-    .pub-authors {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .pub-title a:hover { color: var(--blue); }
+    .pub-authors { font-size: .82rem; color: var(--muted); line-height: 1.6; }
     .pub-authors .me {
       color: var(--dark);
       font-weight: 600;
@@ -376,6 +354,61 @@
     .scholar-more:hover { color: var(--blue); text-decoration: none; }
     .scholar-more svg { width: 13px; height: 13px; }
 
+    /* ── EXPERIENCE ──────────────────────────────────────── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .exp-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .exp-dot {
+      flex-shrink: 0;
+      margin-top: .35rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 2px solid var(--blue-mid);
+    }
+    .exp-body { flex: 1; }
+    .exp-role {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .exp-org {
+      font-size: .85rem;
+      color: var(--body);
+      margin-top: .1rem;
+    }
+    .exp-org a { color: var(--body); font-weight: 500; }
+    .exp-org a:hover { color: var(--blue); text-decoration: underline; }
+    .exp-date {
+      font-size: .78rem;
+      color: var(--faint);
+      margin-top: .15rem;
+    }
+
+    /* ── AWARDS ──────────────────────────────────────────── */
+    .award-list { display: flex; flex-direction: column; gap: .5rem; }
+    .award-item {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-year {
+      flex-shrink: 0;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      background: #F3F4F6;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: .12rem .45rem;
+      border-radius: 4px;
+    }
+    .award-text { font-size: .88rem; color: var(--body); line-height: 1.5; }
+    .award-text strong { color: var(--dark); font-weight: 600; }
+
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
       padding: 1.75rem 0;
@@ -396,6 +429,7 @@
       .nav-inner { padding: 0 1rem; }
       .page { padding: 0 1rem 4rem; }
       .pub-top { flex-direction: column; gap: .4rem; }
+      .exp-item { gap: .65rem; }
     }
   </style>
 </head>
@@ -406,8 +440,9 @@
   <div class="nav-inner">
     <a href="/" class="nav-brand">{{ site.author.name }}</a>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="#research">Research</a>
       <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
       {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
       <a href="/Yingming_Zhou_CV.pdf" target="_blank" rel="noopener" class="nav-cv">CV ↗</a>
     </div>
@@ -415,7 +450,7 @@
 </nav>
 
 <!-- PAGE -->
-<div class="page" id="about">
+<div class="page">
 
   <!-- PROFILE -->
   <div class="profile">
@@ -433,11 +468,12 @@
         {{ site.author.location }}
       </p>
       <p class="profile-bio">
-        First-year PhD student advised by
-        <a href="https://liususan091219.github.io/" target="_blank">Prof.&nbsp;Xueqing&nbsp;Liu</a>.
-        My research focuses on <strong>LLM-based Agents</strong>,
-        <strong>Agentic Coding</strong>, and <strong>Vulnerability Detection</strong>.
-        Always happy to chat about new ideas!
+        I am a PhD student in Computer Science at Stevens Institute of Technology,
+        advised by <a href="https://liususan091219.github.io/" target="_blank">Prof.&nbsp;Xueqing&nbsp;Liu</a>.
+        My research centers on <strong>LLM-based multi-agent systems</strong> —
+        studying how agents can be orchestrated to solve complex software engineering
+        and security tasks, and how <strong>neural-symbolic approaches</strong>
+        can make agent reasoning more structured and verifiable.
       </p>
       <div class="profile-links">
         {% if site.author.email %}
@@ -468,10 +504,21 @@
 
   <hr class="divider">
 
-  <!-- RESEARCH INTERESTS -->
-  <div class="section">
-    <div class="section-label">Focus Areas</div>
+  <!-- RESEARCH -->
+  <div class="section" id="research">
+    <div class="section-label">Research</div>
     <h2 class="section-heading">Research Interests</h2>
+    <p class="research-text">
+      My work sits at the intersection of <strong>large language models</strong> and
+      <strong>software engineering / security</strong>. Specifically, I focus on
+      three directions: (1) <strong>LLM Agent design</strong> — how a single agent
+      can plan, reason, and act in open-ended software tasks; (2)
+      <strong>Multi-Agent Systems</strong> — how multiple specialized agents can be
+      orchestrated to collaboratively generate structured outputs such as process
+      models and code; and (3) <strong>Neural-Symbolic Methods</strong> — combining
+      formal symbolic representations with neural reasoning to improve the
+      reliability and verifiability of agent behavior.
+    </p>
     <div class="tags">
       <span class="tag">LLM Agents</span>
       <span class="tag">Multi-Agent Systems</span>
@@ -488,15 +535,15 @@
     <div class="news-list">
       <div class="news-item">
         <span class="news-year">2025</span>
-        <p class="news-text">Started PhD program at <strong>Stevens Institute of Technology</strong>, joining the Text Mining Lab advised by Prof.&nbsp;Xueqing Liu.</p>
+        <p class="news-text">Started PhD program at <strong>Stevens Institute of Technology</strong>, Text Mining Lab, advised by Prof.&nbsp;Xueqing Liu.</p>
       </div>
       <div class="news-item">
         <span class="news-year">2025</span>
-        <p class="news-text">Honored to receive the <strong>Principal Scholarship</strong> at Stevens Institute of Technology.</p>
+        <p class="news-text">Received the <strong>Principal Scholarship</strong> at Stevens Institute of Technology.</p>
       </div>
       <div class="news-item">
         <span class="news-year">2025</span>
-        <p class="news-text">Paper <em>MAO: A Framework for Process Model Generation with Multi-Agent Orchestration</em> accepted at <strong>IEEE Transactions on Services Computing (TSC&nbsp;2025)</strong>.</p>
+        <p class="news-text">Paper <em>MAO: A Framework for Process Model Generation with Multi-Agent Orchestration</em> published in <strong>IEEE Transactions on Services Computing</strong>.</p>
       </div>
       <div class="news-item">
         <span class="news-year">2024</span>
@@ -509,17 +556,20 @@
 
   <!-- PUBLICATIONS -->
   <div class="section" id="publications">
-    <div class="section-label">Research</div>
+    <div class="section-label">Research Output</div>
     <h2 class="section-heading">Publications</h2>
     <div class="pub-list">
 
-      <!-- Bug Bounty 2025 -->
-      <div class="pub-card pub-card--conf">
+      <!-- Bug Bounty Workshop 2025 -->
+      <div class="pub-card pub-card--workshop">
         <div class="pub-top">
-          <span class="pub-venue pub-venue--conf">Workshop 2025</span>
+          <div class="pub-badges">
+            <span class="pub-venue pub-venue--workshop">Workshop 2025</span>
+            <span class="pub-role">2nd Author</span>
+          </div>
           <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener" class="pub-pdflink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            arXiv
+            PDF
           </a>
         </div>
         <h3 class="pub-title">
@@ -533,10 +583,13 @@
         </p>
       </div>
 
-      <!-- TSC 2025 -->
+      <!-- MAO TSC 2025 -->
       <div class="pub-card pub-card--journal">
         <div class="pub-top">
-          <span class="pub-venue pub-venue--journal">TSC 2025</span>
+          <div class="pub-badges">
+            <span class="pub-venue pub-venue--journal">IEEE TSC 2025</span>
+            <span class="pub-role">Co-first Author</span>
+          </div>
           <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener" class="pub-pdflink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             PDF
@@ -556,7 +609,9 @@
       <!-- WCNC 2024 -->
       <div class="pub-card pub-card--conf">
         <div class="pub-top">
-          <span class="pub-venue pub-venue--conf">WCNC 2024</span>
+          <div class="pub-badges">
+            <span class="pub-venue pub-venue--conf">IEEE WCNC 2024</span>
+          </div>
           <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener" class="pub-pdflink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             PDF
@@ -573,10 +628,13 @@
         </p>
       </div>
 
-      <!-- Preprint -->
+      <!-- Think-on-Process preprint -->
       <div class="pub-card pub-card--preprint">
         <div class="pub-top">
-          <span class="pub-venue pub-venue--preprint">Preprint</span>
+          <div class="pub-badges">
+            <span class="pub-venue pub-venue--preprint">Preprint</span>
+            <span class="pub-role">Co-first Author</span>
+          </div>
           <a href="https://arxiv.org/pdf/2409.06568" target="_blank" rel="noopener" class="pub-pdflink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             arXiv
@@ -596,8 +654,44 @@
 
     <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener" class="scholar-more">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/><path d="M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-      View full list on Google Scholar →
+      Full list on Google Scholar →
     </a>
+  </div>
+
+  <hr class="divider">
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <div class="section-label">Background</div>
+    <h2 class="section-heading">Experience</h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-body">
+          <div class="exp-role">Ph.D. in Computer Science</div>
+          <div class="exp-org">
+            <a href="https://www.stevens.edu/" target="_blank">Stevens Institute of Technology</a>
+            &nbsp;·&nbsp; Text Mining Lab &nbsp;·&nbsp;
+            Advisor: <a href="https://liususan091219.github.io/" target="_blank">Prof. Xueqing Liu</a>
+          </div>
+          <div class="exp-date">Sep 2025 – Present</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- AWARDS -->
+  <div class="section">
+    <div class="section-label">Honors</div>
+    <h2 class="section-heading">Awards &amp; Honors</h2>
+    <div class="award-list">
+      <div class="award-item">
+        <span class="award-year">2025</span>
+        <p class="award-text"><strong>Principal Scholarship</strong> &nbsp;·&nbsp; Stevens Institute of Technology</p>
+      </div>
+    </div>
   </div>
 
 </div><!-- /.page -->
