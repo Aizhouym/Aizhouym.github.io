@@ -190,13 +190,13 @@
     /* ── PROFILE ─────────────────────────────────────────── */
     .profile {
       display: flex;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: flex-start;
       padding: 4rem 0 3.5rem;
     }
     .profile-photo-wrap { flex-shrink: 0; }
     .profile-photo {
-      width: 140px; height: 140px;
+      width: 130px; height: 130px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
@@ -204,6 +204,43 @@
       box-shadow: 0 0 0 4px rgba(94,106,210,.15);
     }
     .profile-body { flex: 1; min-width: 0; padding-top: .1rem; }
+
+    /* Research Snapshot card — right of profile */
+    .snapshot {
+      flex-shrink: 0;
+      width: 220px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      align-self: center;
+    }
+    .snapshot-label {
+      font-size: .62rem;
+      font-weight: 510;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent-bright);
+      margin-bottom: .75rem;
+    }
+    .snapshot-topics { display: flex; flex-direction: column; gap: .35rem; margin-bottom: .9rem; }
+    .snapshot-topic {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .78rem; color: var(--text-secondary); font-weight: 400;
+    }
+    .snapshot-topic::before {
+      content: '';
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--accent-bright); flex-shrink: 0;
+    }
+    .snapshot-divider { height: 1px; background: var(--border-subtle); margin: .7rem 0; }
+    .snapshot-stats {
+      display: flex; flex-wrap: wrap; gap: .3rem .6rem;
+      font-size: .72rem; color: var(--text-muted);
+    }
+    .snapshot-stat { display: flex; align-items: center; gap: .25rem; }
+    .snapshot-stat strong { color: var(--text-primary); font-weight: 510; }
+    @media (max-width: 820px) { .snapshot { display: none; } }
 
     .profile-pill {
       display: inline-flex;
@@ -251,12 +288,12 @@
     .profile-meta .dot { color: var(--border-solid); }
 
     .profile-bio {
-      font-size: .95rem;
+      font-size: .93rem;
       font-weight: 400;
       line-height: 1.75;
       color: var(--text-secondary);
-      margin-bottom: 1.6rem;
-      max-width: 520px;
+      margin-bottom: 1.4rem;
+      max-width: 460px;
     }
     .profile-bio strong { color: var(--text-primary); font-weight: 510; }
     .profile-bio a { color: var(--accent-bright); font-weight: 510; }
@@ -301,7 +338,6 @@
 
     /* ── SINGLE-COLUMN BODY ──────────────────────────────── */
     .body-grid { display: block; }
-    .section + .section { border-top: 1px solid var(--border-subtle); }
 
     /* Experience + Awards side by side */
     .meta-grid {
@@ -312,7 +348,7 @@
     @media (max-width: 640px) { .meta-grid { grid-template-columns: 1fr; } }
 
     /* ── SECTION ─────────────────────────────────────────── */
-    .section { padding: 2.5rem 0; }
+    .section { padding: 3rem 0; }
     .section-label {
       font-size: .67rem;
       font-weight: 510;
@@ -435,13 +471,17 @@
     .pub-title a { color: inherit; text-decoration: none; }
     .pub-title a:hover { color: var(--accent-bright); }
 
-    .pub-authors { font-size: .8rem; color: var(--text-muted); line-height: 1.6; }
+    .pub-summary {
+      font-size: .8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: .4rem;
+      font-style: italic;
+    }
+    .pub-authors { font-size: .78rem; color: var(--text-muted); line-height: 1.6; margin-top: .2rem; }
     .pub-authors .me {
-      color: var(--text-secondary);
-      font-weight: 510;
-      text-decoration: underline;
-      text-decoration-color: rgba(113,112,255,.35);
-      text-underline-offset: 2px;
+      color: var(--text-primary);
+      font-weight: 600;
     }
     .pub-authors em { font-style: italic; }
 
@@ -571,8 +611,9 @@
     <a href="/" class="nav-brand">{{ site.author.name }}</a>
     <div class="nav-links">
       <a href="#research">Research</a>
+      <a href="#news">News</a>
       <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
+      <a href="#background">Background</a>
       {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
       <a href="/Yingming_Zhou_CV.pdf" target="_blank" rel="noopener" class="nav-cv">CV ↗</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -613,12 +654,11 @@
         {{ site.author.location }}
       </p>
       <p class="profile-bio">
-        PhD student in CS at Stevens Institute of Technology,
-        advised by <a href="https://liususan091219.github.io/" target="_blank">Prof.&nbsp;Xueqing&nbsp;Liu</a>.
-        My research centers on <strong>LLM-based multi-agent systems</strong> —
-        how agents can be orchestrated for software engineering and security tasks,
-        and how <strong>neural-symbolic approaches</strong> can make agent reasoning
-        more structured and verifiable.
+        PhD student at Stevens, advised by
+        <a href="https://liususan091219.github.io/" target="_blank">Prof.&nbsp;Xueqing&nbsp;Liu</a>.
+        I build <strong>LLM-based multi-agent systems</strong> for software engineering and security,
+        with a focus on making agent reasoning more reliable through
+        <strong>neural-symbolic methods</strong>.
       </p>
       <div class="profile-links">
         {% if site.author.email %}
@@ -643,6 +683,22 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           Download CV
         </a>
+      </div>
+    </div>
+
+    <!-- Research Snapshot -->
+    <div class="snapshot">
+      <div class="snapshot-label">Research Focus</div>
+      <div class="snapshot-topics">
+        <span class="snapshot-topic">LLM Agent Design</span>
+        <span class="snapshot-topic">Multi-Agent Systems</span>
+        <span class="snapshot-topic">Neural-Symbolic Methods</span>
+      </div>
+      <div class="snapshot-divider"></div>
+      <div class="snapshot-stats">
+        <span class="snapshot-stat"><strong>4</strong> papers</span>
+        <span class="snapshot-stat"><strong>2024</strong>–2025</span>
+        <span class="snapshot-stat">SE · Security</span>
       </div>
     </div>
   </div>
@@ -672,7 +728,7 @@
     </div>
 
     <!-- NEWS -->
-    <div class="section">
+    <div class="section" id="news">
       <div class="section-label">Updates</div>
       <h2 class="section-heading">News</h2>
       <div class="news-list">
@@ -691,10 +747,10 @@
       </div>
     </div>
 
-    <!-- PUBLICATIONS -->
+    <!-- SELECTED PUBLICATIONS -->
     <div class="section" id="publications">
-      <div class="section-label">Research Output</div>
-      <h2 class="section-heading">Publications</h2>
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-heading">Selected Publications</h2>
       <div class="pub-list">
 
         <div class="pub-card pub-card--workshop">
@@ -702,7 +758,7 @@
             <span class="pub-venue pub-venue--workshop">Workshop 2025</span>
             <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener" class="pub-pdflink">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              PDF
+              Paper
             </a>
           </div>
           <h3 class="pub-title">
@@ -710,6 +766,7 @@
               From Reviewers' Lens: Understanding Bug Bounty Report Invalid Reasons with LLMs
             </a>
           </h3>
+          <p class="pub-summary">LLM-based classification of why bug bounty reports are rejected, surfacing patterns invisible to human reviewers.</p>
           <p class="pub-authors">
             Jiangrui Zheng, <span class="me">Yingming Zhou</span>, Ali Abdullah Ahmad, Hanqing Yao, Xueqing Liu.
             <br><em>Workshop on Secure and Safe AI Agents for Big Data Infrastructure, 2025.</em>
@@ -721,7 +778,7 @@
             <span class="pub-venue pub-venue--journal">IEEE TSC 2025</span>
             <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener" class="pub-pdflink">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              PDF
+              Paper
             </a>
           </div>
           <h3 class="pub-title">
@@ -729,6 +786,7 @@
               MAO: A Framework for Process Model Generation with Multi-Agent Orchestration
             </a>
           </h3>
+          <p class="pub-summary">Multi-agent orchestration framework that automatically generates formal process models from natural-language requirements.</p>
           <p class="pub-authors">
             Leilei Lin<sup>*</sup>, Yumeng Jin<sup>*</sup>, <span class="me">Yingming Zhou</span>, Wenlong Chen, Chen Qian.
             <br><em>IEEE Transactions on Services Computing, 2025.</em>
@@ -740,7 +798,7 @@
             <span class="pub-venue pub-venue--conf">IEEE WCNC 2024</span>
             <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener" class="pub-pdflink">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              PDF
+              Paper
             </a>
           </div>
           <h3 class="pub-title">
@@ -748,6 +806,7 @@
               Individual Behavior Clustering with Sensors Using Graph Convolutional Networks
             </a>
           </h3>
+          <p class="pub-summary">Graph convolutional approach for clustering individual behaviors from heterogeneous IoT sensor streams.</p>
           <p class="pub-authors">
             Xingchi Peng, Yunuo Cao, Leilei Lin, <span class="me">Yingming Zhou</span>, Wenlong Chen.
             <br><em>IEEE Wireless Communications and Networking Conference (WCNC), 2024.</em>
@@ -767,6 +826,7 @@
               Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System
             </a>
           </h3>
+          <p class="pub-summary">Agents collaboratively generate and refine process graphs on-the-fly during multi-agent software development.</p>
           <p class="pub-authors">
             Leilei Lin<sup>*</sup>, <span class="me">Yingming Zhou<sup>*</sup></span>, Wenlong Chen, Chen Qian.
           </p>
@@ -779,8 +839,8 @@
       </a>
     </div>
 
-    <!-- EXPERIENCE + AWARDS side by side -->
-    <div class="section meta-grid" id="experience">
+    <!-- BACKGROUND & HONORS (merged) -->
+    <div class="section meta-grid" id="background">
       <div>
         <div class="section-label">Background</div>
         <h2 class="section-heading">Experience</h2>
