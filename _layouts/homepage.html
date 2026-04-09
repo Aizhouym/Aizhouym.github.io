@@ -95,7 +95,7 @@
     [data-theme="light"] .exp-dot { background: #4f57c8; border-color: #5e6ad2; }
     [data-theme="light"] .plink { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); color: #374151; }
     [data-theme="light"] .plink:hover { background: rgba(0,0,0,0.06); color: #0f1117; }
-    [data-theme="light"] .profile-photo { box-shadow: 0 0 0 4px rgba(79,87,200,.15); }
+
     [data-theme="light"] .pub-authors .me { text-decoration-color: rgba(79,87,200,.4); }
     [data-theme="light"] .scholar-more { color: #9ca3af; }
     [data-theme="light"] .scholar-more:hover { color: #4f57c8; }
@@ -190,18 +190,18 @@
     /* ── PROFILE ─────────────────────────────────────────── */
     .profile {
       display: flex;
-      gap: 2.5rem;
+      gap: 2.8rem;
       align-items: flex-start;
-      padding: 4rem 0 3.5rem;
+      padding: 3.5rem 0 3rem;
     }
     .profile-photo-wrap { flex-shrink: 0; }
     .profile-photo {
-      width: 130px; height: 130px;
-      border-radius: 50%;
+      width: 120px; height: 150px;
+      border-radius: var(--radius-md);
       object-fit: cover;
+      object-position: center top;
       display: block;
       border: 1px solid var(--border);
-      box-shadow: 0 0 0 4px rgba(94,106,210,.15);
     }
     .profile-body { flex: 1; min-width: 0; padding-top: .1rem; }
 
@@ -554,7 +554,7 @@
     }
     @media (max-width: 560px) {
       .profile { flex-direction: column; align-items: center; text-align: center; padding: 2.5rem 0 2rem; gap: 1.5rem; }
-      .profile-photo { width: 110px; height: 110px; }
+      .profile-photo { width: 90px; height: 112px; }
       .profile-name { font-size: 2rem; }
       .profile-meta { justify-content: center; }
       .profile-bio { max-width: 100%; }
