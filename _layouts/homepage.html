@@ -49,7 +49,7 @@
       --amber:  #d97706;
       --purple: #7c3aed;
 
-      --w: 1280px;
+      --w: 960px;
       --radius-sm: 4px;
       --radius:    6px;
       --radius-md: 8px;
@@ -299,15 +299,17 @@
     /* ── DIVIDER ─────────────────────────────────────────── */
     .divider { height: 1px; background: var(--border-subtle); border: none; }
 
-    /* ── TWO-COLUMN BODY ─────────────────────────────────── */
-    .body-grid {
+    /* ── SINGLE-COLUMN BODY ──────────────────────────────── */
+    .body-grid { display: block; }
+    .section + .section { border-top: 1px solid var(--border-subtle); }
+
+    /* Experience + Awards side by side */
+    .meta-grid {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 0 3.5rem;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
     }
-    .col-main .section + .section { border-top: 1px solid var(--border-subtle); }
-    .col-side .section + .section  { border-top: 1px solid var(--border-subtle); }
+    @media (max-width: 640px) { .meta-grid { grid-template-columns: 1fr; } }
 
     /* ── SECTION ─────────────────────────────────────────── */
     .section { padding: 2.5rem 0; }
@@ -533,30 +535,20 @@
       padding-left: 2rem; padding-right: 2rem;
     }
     .footer-globe {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1rem;
+      /* hard clip — nothing escapes this box regardless of what globe.js renders */
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
       opacity: .85;
       transition: opacity .2s;
     }
     .footer-globe:hover { opacity: 1; }
-    /* constrain globe — targets canvas, img, and iframes ClustrMaps may render */
-    .footer-globe canvas,
-    .footer-globe img,
-    .footer-globe iframe,
-    .footer-globe > div,
-    .footer-globe > * {
-      width: 160px !important;
-      height: 160px !important;
-      max-width: 160px !important;
-      max-height: 160px !important;
-    }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 820px) {
-      .body-grid { grid-template-columns: 1fr; }
-      .col-side { border-top: 1px solid var(--border-subtle); }
+      .meta-grid { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 560px) {
       .profile { flex-direction: column; align-items: center; text-align: center; padding: 2.5rem 0 2rem; gap: 1.5rem; }
@@ -659,140 +651,137 @@
 
   <div class="body-grid">
 
-    <!-- LEFT -->
-    <div class="col-main">
+    <!-- RESEARCH -->
+    <div class="section" id="research">
+      <div class="section-label">Research</div>
+      <h2 class="section-heading">Research Interests</h2>
+      <p class="research-text">
+        My work sits at the intersection of <strong>large language models</strong>
+        and <strong>software engineering / security</strong>. I focus on three directions:
+        (1) <strong>LLM Agent design</strong> — planning and acting on open-ended software tasks;
+        (2) <strong>Multi-Agent Systems</strong> — orchestrating specialized agents to produce
+        structured outputs such as process models and code; and (3)
+        <strong>Neural-Symbolic Methods</strong> — integrating formal representations with neural
+        reasoning to improve agent reliability and verifiability.
+      </p>
+      <div class="tags">
+        <span class="tag">LLM Agents</span>
+        <span class="tag">Multi-Agent Systems</span>
+        <span class="tag">Neural-Symbolic Methods</span>
+      </div>
+    </div>
 
-      <div class="section" id="research">
-        <div class="section-label">Research</div>
-        <h2 class="section-heading">Research Interests</h2>
-        <p class="research-text">
-          My work sits at the intersection of <strong>large language models</strong>
-          and <strong>software engineering / security</strong>. I focus on three directions:
-          (1) <strong>LLM Agent design</strong> — planning and acting on open-ended software tasks;
-          (2) <strong>Multi-Agent Systems</strong> — orchestrating specialized agents to produce
-          structured outputs such as process models and code; and (3)
-          <strong>Neural-Symbolic Methods</strong> — integrating formal representations with neural
-          reasoning to improve agent reliability and verifiability.
-        </p>
-        <div class="tags">
-          <span class="tag">LLM Agents</span>
-          <span class="tag">Multi-Agent Systems</span>
-          <span class="tag">Neural-Symbolic Methods</span>
+    <!-- NEWS -->
+    <div class="section">
+      <div class="section-label">Updates</div>
+      <h2 class="section-heading">News</h2>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="news-year">2025</span>
+          <p class="news-text">Started PhD at <strong>Stevens Institute of Technology</strong>, Text Mining Lab, advised by Prof.&nbsp;Xueqing Liu.</p>
+        </div>
+        <div class="news-item">
+          <span class="news-year">2025</span>
+          <p class="news-text">Paper <em>MAO</em> published in <strong>IEEE Transactions on Services Computing</strong>.</p>
+        </div>
+        <div class="news-item">
+          <span class="news-year">2024</span>
+          <p class="news-text">Paper on behavior clustering presented at <strong>IEEE WCNC 2024</strong>.</p>
         </div>
       </div>
+    </div>
 
-      <div class="section" id="publications">
-        <div class="section-label">Research Output</div>
-        <h2 class="section-heading">Publications</h2>
-        <div class="pub-list">
+    <!-- PUBLICATIONS -->
+    <div class="section" id="publications">
+      <div class="section-label">Research Output</div>
+      <h2 class="section-heading">Publications</h2>
+      <div class="pub-list">
 
-          <div class="pub-card pub-card--workshop">
-            <div class="pub-top">
-              <span class="pub-venue pub-venue--workshop">Workshop 2025</span>
-              <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener" class="pub-pdflink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                PDF
-              </a>
-            </div>
-            <h3 class="pub-title">
-              <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener">
-                From Reviewers' Lens: Understanding Bug Bounty Report Invalid Reasons with LLMs
-              </a>
-            </h3>
-            <p class="pub-authors">
-              Jiangrui Zheng, <span class="me">Yingming Zhou</span>, Ali Abdullah Ahmad, Hanqing Yao, Xueqing Liu.
-              <br><em>Workshop on Secure and Safe AI Agents for Big Data Infrastructure, 2025.</em>
-            </p>
+        <div class="pub-card pub-card--workshop">
+          <div class="pub-top">
+            <span class="pub-venue pub-venue--workshop">Workshop 2025</span>
+            <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener" class="pub-pdflink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              PDF
+            </a>
           </div>
-
-          <div class="pub-card pub-card--journal">
-            <div class="pub-top">
-              <span class="pub-venue pub-venue--journal">IEEE TSC 2025</span>
-              <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener" class="pub-pdflink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                PDF
-              </a>
-            </div>
-            <h3 class="pub-title">
-              <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener">
-                MAO: A Framework for Process Model Generation with Multi-Agent Orchestration
-              </a>
-            </h3>
-            <p class="pub-authors">
-              Leilei Lin<sup>*</sup>, Yumeng Jin<sup>*</sup>, <span class="me">Yingming Zhou</span>, Wenlong Chen, Chen Qian.
-              <br><em>IEEE Transactions on Services Computing, 2025.</em>
-            </p>
-          </div>
-
-          <div class="pub-card pub-card--conf">
-            <div class="pub-top">
-              <span class="pub-venue pub-venue--conf">IEEE WCNC 2024</span>
-              <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener" class="pub-pdflink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                PDF
-              </a>
-            </div>
-            <h3 class="pub-title">
-              <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener">
-                Individual Behavior Clustering with Sensors Using Graph Convolutional Networks
-              </a>
-            </h3>
-            <p class="pub-authors">
-              Xingchi Peng, Yunuo Cao, Leilei Lin, <span class="me">Yingming Zhou</span>, Wenlong Chen.
-              <br><em>IEEE Wireless Communications and Networking Conference (WCNC), 2024.</em>
-            </p>
-          </div>
-
-          <div class="pub-card pub-card--preprint">
-            <div class="pub-top">
-              <span class="pub-venue pub-venue--preprint">Preprint</span>
-              <a href="https://arxiv.org/pdf/2409.06568" target="_blank" rel="noopener" class="pub-pdflink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                arXiv
-              </a>
-            </div>
-            <h3 class="pub-title">
-              <a href="https://arxiv.org/pdf/2409.06568" target="_blank" rel="noopener">
-                Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System
-              </a>
-            </h3>
-            <p class="pub-authors">
-              Leilei Lin<sup>*</sup>, <span class="me">Yingming Zhou<sup>*</sup></span>, Wenlong Chen, Chen Qian.
-            </p>
-          </div>
-
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/abs/2511.18608" target="_blank" rel="noopener">
+              From Reviewers' Lens: Understanding Bug Bounty Report Invalid Reasons with LLMs
+            </a>
+          </h3>
+          <p class="pub-authors">
+            Jiangrui Zheng, <span class="me">Yingming Zhou</span>, Ali Abdullah Ahmad, Hanqing Yao, Xueqing Liu.
+            <br><em>Workshop on Secure and Safe AI Agents for Big Data Infrastructure, 2025.</em>
+          </p>
         </div>
-        <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener" class="scholar-more">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/><path d="M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-          Full list on Google Scholar →
-        </a>
-      </div>
 
-    </div><!-- /.col-main -->
-
-    <!-- RIGHT -->
-    <div class="col-side">
-
-      <div class="section">
-        <div class="section-label">Updates</div>
-        <h2 class="section-heading">News</h2>
-        <div class="news-list">
-          <div class="news-item">
-            <span class="news-year">2025</span>
-            <p class="news-text">Started PhD at <strong>Stevens Institute of Technology</strong>, Text Mining Lab, advised by Prof.&nbsp;Xueqing Liu.</p>
+        <div class="pub-card pub-card--journal">
+          <div class="pub-top">
+            <span class="pub-venue pub-venue--journal">IEEE TSC 2025</span>
+            <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener" class="pub-pdflink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              PDF
+            </a>
           </div>
-          <div class="news-item">
-            <span class="news-year">2025</span>
-            <p class="news-text">Paper <em>MAO</em> published in <strong>IEEE Transactions on Services Computing</strong>.</p>
-          </div>
-          <div class="news-item">
-            <span class="news-year">2024</span>
-            <p class="news-text">Paper on behavior clustering presented at <strong>IEEE WCNC 2024</strong>.</p>
-          </div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/pdf/2408.01916" target="_blank" rel="noopener">
+              MAO: A Framework for Process Model Generation with Multi-Agent Orchestration
+            </a>
+          </h3>
+          <p class="pub-authors">
+            Leilei Lin<sup>*</sup>, Yumeng Jin<sup>*</sup>, <span class="me">Yingming Zhou</span>, Wenlong Chen, Chen Qian.
+            <br><em>IEEE Transactions on Services Computing, 2025.</em>
+          </p>
         </div>
-      </div>
 
-      <div class="section" id="experience">
+        <div class="pub-card pub-card--conf">
+          <div class="pub-top">
+            <span class="pub-venue pub-venue--conf">IEEE WCNC 2024</span>
+            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener" class="pub-pdflink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+          <h3 class="pub-title">
+            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10571088" target="_blank" rel="noopener">
+              Individual Behavior Clustering with Sensors Using Graph Convolutional Networks
+            </a>
+          </h3>
+          <p class="pub-authors">
+            Xingchi Peng, Yunuo Cao, Leilei Lin, <span class="me">Yingming Zhou</span>, Wenlong Chen.
+            <br><em>IEEE Wireless Communications and Networking Conference (WCNC), 2024.</em>
+          </p>
+        </div>
+
+        <div class="pub-card pub-card--preprint">
+          <div class="pub-top">
+            <span class="pub-venue pub-venue--preprint">Preprint</span>
+            <a href="https://arxiv.org/pdf/2409.06568" target="_blank" rel="noopener" class="pub-pdflink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              arXiv
+            </a>
+          </div>
+          <h3 class="pub-title">
+            <a href="https://arxiv.org/pdf/2409.06568" target="_blank" rel="noopener">
+              Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System
+            </a>
+          </h3>
+          <p class="pub-authors">
+            Leilei Lin<sup>*</sup>, <span class="me">Yingming Zhou<sup>*</sup></span>, Wenlong Chen, Chen Qian.
+          </p>
+        </div>
+
+      </div>
+      <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener" class="scholar-more">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/><path d="M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+        Full list on Google Scholar →
+      </a>
+    </div>
+
+    <!-- EXPERIENCE + AWARDS side by side -->
+    <div class="section meta-grid" id="experience">
+      <div>
         <div class="section-label">Background</div>
         <h2 class="section-heading">Experience</h2>
         <div class="exp-list">
@@ -809,8 +798,7 @@
           </div>
         </div>
       </div>
-
-      <div class="section">
+      <div>
         <div class="section-label">Honors</div>
         <h2 class="section-heading">Awards</h2>
         <div class="award-list">
@@ -820,8 +808,8 @@
           </div>
         </div>
       </div>
+    </div>
 
-    </div><!-- /.col-side -->
   </div><!-- /.body-grid -->
 
 </div><!-- /.page -->
