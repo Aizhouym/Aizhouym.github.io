@@ -13,11 +13,12 @@
 
     /* ── Linear Design System tokens ──────────────────────── */
     :root {
-      /* Backgrounds */
+      /* Backgrounds — dark (default) */
       --bg-page:     #08090a;
       --bg-panel:    #0f1011;
       --bg-surface:  #191a1b;
       --bg-elevated: #28282c;
+      --bg-nav:      rgba(8,9,10,0.88);
 
       /* Text */
       --text-primary:   #f7f8f8;
@@ -47,6 +48,51 @@
       --radius-lg: 12px;
     }
 
+    /* ── Light theme ───────────────────────────────────────── */
+    [data-theme="light"] {
+      --bg-page:     #f9fafb;
+      --bg-panel:    #ffffff;
+      --bg-surface:  #f1f3f5;
+      --bg-elevated: #e8eaed;
+      --bg-nav:      rgba(249,250,251,0.92);
+
+      --text-primary:   #0f1117;
+      --text-secondary: #374151;
+      --text-muted:     #6b7280;
+      --text-subtle:    #9ca3af;
+
+      --accent:       #4f57c8;
+      --accent-bright:#5e6ad2;
+      --accent-hover: #4349b5;
+
+      --border:       rgba(0,0,0,0.08);
+      --border-subtle:rgba(0,0,0,0.05);
+      --border-solid: #d1d5db;
+
+      --green:  #16a34a;
+      --amber:  #b45309;
+      --purple: #6d28d9;
+    }
+    [data-theme="light"] .pub-venue--journal  { background: rgba(22,163,74,.1);   color: #15803d; border-color: rgba(22,163,74,.2); }
+    [data-theme="light"] .pub-venue--conf     { background: rgba(79,87,200,.1);   color: #4f57c8; border-color: rgba(79,87,200,.2); }
+    [data-theme="light"] .pub-venue--workshop { background: rgba(109,40,217,.1);  color: #6d28d9; border-color: rgba(109,40,217,.2); }
+    [data-theme="light"] .pub-venue--preprint { background: rgba(180,83,9,.1);    color: #b45309; border-color: rgba(180,83,9,.2); }
+    [data-theme="light"] .pub-card { background: #ffffff; }
+    [data-theme="light"] .pub-card:hover { background: #f5f7ff; }
+    [data-theme="light"] .tag { background: rgba(79,87,200,.08); color: #4f57c8; border-color: rgba(79,87,200,.18); }
+    [data-theme="light"] .tag:hover { background: rgba(79,87,200,.15); }
+    [data-theme="light"] .profile-pill { background: rgba(79,87,200,.1); color: #4f57c8; border-color: rgba(79,87,200,.25); }
+    [data-theme="light"] .profile-pill::before { background: #4f57c8; }
+    [data-theme="light"] .news-year,
+    [data-theme="light"] .award-year { background: rgba(0,0,0,0.04); color: #9ca3af; border-color: rgba(0,0,0,0.08); }
+    [data-theme="light"] .exp-dot { background: #4f57c8; border-color: #5e6ad2; }
+    [data-theme="light"] .plink { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); color: #374151; }
+    [data-theme="light"] .plink:hover { background: rgba(0,0,0,0.06); color: #0f1117; }
+    [data-theme="light"] .profile-photo { box-shadow: 0 0 0 4px rgba(79,87,200,.15); }
+    [data-theme="light"] .pub-authors .me { text-decoration-color: rgba(79,87,200,.4); }
+    [data-theme="light"] .scholar-more { color: #9ca3af; }
+    [data-theme="light"] .scholar-more:hover { color: #4f57c8; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -65,10 +111,11 @@
     /* ── NAV ─────────────────────────────────────────────── */
     .nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(8,9,10,0.85);
+      background: var(--bg-nav);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-subtle);
+      transition: background .2s;
     }
     .nav-inner {
       max-width: var(--w);
@@ -105,6 +152,26 @@
       border-radius: var(--radius) !important;
     }
     .nav-cv:hover { background: var(--accent-bright) !important; color: #fff !important; }
+
+    /* theme toggle */
+    .theme-toggle {
+      margin-left: .5rem;
+      width: 32px; height: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, color .15s, border-color .15s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: rgba(128,128,128,0.1); color: var(--text-secondary); border-color: var(--border-solid); }
+    .theme-toggle svg { width: 15px; height: 15px; }
+    .theme-toggle .icon-moon { display: block; }
+    .theme-toggle .icon-sun  { display: none; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+    [data-theme="light"] .theme-toggle .icon-sun  { display: block; }
 
     /* ── PAGE ────────────────────────────────────────────── */
     .page {
@@ -489,6 +556,20 @@
       <a href="#experience">Experience</a>
       {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
       <a href="/Yingming_Zhou_CV.pdf" target="_blank" rel="noopener" class="nav-cv">CV ↗</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <!-- moon icon (shown in dark mode) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- sun icon (shown in light mode) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -722,5 +803,24 @@
   <p>© {{ site.time | date: "%Y" }} {{ site.author.name }} &nbsp;·&nbsp; {{ site.author.location }}</p>
 </footer>
 
+<script>
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = saved || (prefersDark ? 'dark' : 'light');
+    if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'light' ? 'dark' : 'light';
+      if (next === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+      localStorage.setItem('theme', next);
+    });
+  })();
+</script>
 </body>
 </html>
