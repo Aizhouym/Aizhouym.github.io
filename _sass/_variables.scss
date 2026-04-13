@@ -6,7 +6,7 @@
    Typography
    ========================================================================== */
 
-$doc-font-size              : 18;
+$doc-font-size              : 19;
 
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
@@ -33,14 +33,14 @@ $header-font-family         : $sans-serif;
 $caption-font-family        : $serif;
 
 /* type scale */
-$type-size-1                : 2.441em;  // ~43.938px
-$type-size-2                : 1.953em;  // ~35.154px
-$type-size-3                : 1.563em;  // ~28.134px
-$type-size-4                : 1.25em;   // ~22.5px
-$type-size-5                : 1em;      // ~18px
-$type-size-6                : 0.875em;  // ~15.75px
-$type-size-7                : 0.75em;   // ~13.5px
-$type-size-8                : 0.6875em; // ~12.375px
+$type-size-1                : 2.441em;  // ~46.379px
+$type-size-2                : 1.953em;  // ~37.107px
+$type-size-3                : 1.563em;  // ~29.697px
+$type-size-4                : 1.25em;   // ~23.75px
+$type-size-5                : 1em;      // ~19px
+$type-size-6                : 0.875em;  // ~16.625px
+$type-size-7                : 0.75em;   // ~14.25px
+$type-size-8                : 0.6875em; // ~13.063px
 
 /* masthead properties */
 $masthead-height            : 70px;
