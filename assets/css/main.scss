@@ -63,7 +63,7 @@
 
 /* Author location & employer styling */
 .author__urls li.author__desktop {
-  font-size: 0.8em;
+  font-size: 0.95em;
   color: #64748b;
   padding: 4px 8px;
 }
@@ -92,12 +92,24 @@
 
 /* "About Me" section headings */
 .page__content h2 {
-  font-size: 1.15em;
+  font-size: 1.35em;
   margin-top: 2em;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 700;
   color: #334155;
+}
+
+.page__content p,
+.page__content li,
+.page__content dl {
+  font-size: 1.05em;
+}
+
+.sidebar .author__bio,
+.sidebar p,
+.sidebar li {
+  font-size: 0.98em;
 }
 
 /* News items: simple tag-like prefix */
