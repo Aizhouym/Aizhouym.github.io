@@ -31,7 +31,7 @@ See also my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAA
 
 ## Workshop Papers
 
-- **[From Reviewers' Lens: Understanding Bug Bounty Report Invalid Reasons with LLMs](https://arxiv.org/abs/2511.18608)**
+- **[From Reviewers' Lens: Understanding Bug Bounty Report Invalid Reasons with LLMs](https://arxiv.org/pdf/2511.18608)**
   <br>Jiangrui Zheng, **Yingming Zhou**, Ali Abdullah Ahmad, Hanqing Yao, Xueqing Liu.
   <br>*Workshop on Secure and Safe AI Agents for Big Data Infrastructure, 2025.*
 
