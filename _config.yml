@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Yingming Zhou"
 title_separator          : "-"
 name                     : &name "Yingming Zhou"
-description              : &description "PhD student in Computer Science at Stevens Institute of Technology. Research: reliable LLM systems for software engineering and security — RL with symbolic feedback, access-control policy synthesis, multi-agent software development."
+description              : &description "PhD student in Computer Science at Stevens Institute of Technology. Research: neurosymbolic AI, pairing large language models with symbolic reasoning and formal verification for software engineering and security."
 url                      : https://aizhouym.github.io
 baseurl                  : ""
 repository               : "Aizhouym/Aizhouym.github.io"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile2.png"
   name             : "Yingming Zhou"
   pronouns         : # example: "she/her"  
-  bio              : "PhD student in CS at Stevens Institute of Technology. Research: RL with symbolic feedback, access-control policy synthesis, multi-agent software development."
+  bio              : "PhD student in CS at Stevens Institute of Technology. Research: neurosymbolic AI and large language models."
   location         : "Hoboken, NJ"
   employer         : "Stevens Institute of Technology"
   uri              : # URL
