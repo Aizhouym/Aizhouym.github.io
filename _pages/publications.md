@@ -45,6 +45,6 @@ See also my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAA
   <br>Adarsh Vatsa, Sachi Shome, **Yingming Zhou**, William Eiers.
   <br>*arXiv preprint, 2026.*
 
-- **[Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System](https://arxiv.org/pdf/2409.06568)**
+- **[Think-on-Process: Dynamic Process Generation for Collaborative Development of Multi-Agent System](https://arxiv.org/pdf/2409.06568)** [[Code](https://github.com/Aizhouym/Think-on-Process)]
   <br>Leilei Lin<sup>*</sup>, **Yingming Zhou**<sup>*</sup>, Wenlong Chen, Chen Qian.
   <br>*arXiv preprint, 2024.*
