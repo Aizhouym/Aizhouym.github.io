@@ -15,7 +15,7 @@ See also my [Google Scholar](https://scholar.google.com/citations?user=7GaCGpgAA
 
 ## Conference Papers
 
-- **[PatchHolmes: Agentic Patch Retrieval via Listwise Selection](https://openreview.net/pdf?id=iBOjx0Ifbh)**
+- **[PatchHolmes: Agentic Patch Retrieval via Listwise Selection](https://openreview.net/pdf?id=iBOjx0Ifbh)** [[Code](https://github.com/Aizhouym/PatchHolmes)]
   <br>Guanqun Yang<sup>*</sup>, **Yingming Zhou**<sup>*</sup>, Jiangrui Zheng, Shudong Hao, Xueqing Liu.
   <br>*IJCNLP-AACL (Main Conference), 2026.*
 
